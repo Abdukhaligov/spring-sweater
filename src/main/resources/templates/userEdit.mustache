@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<!--<form action="/registration" method="post">-->
+
+<!--</form>-->
+
+<div>
+  <b>{{user.id}}</b>
+  <div><label> User Name : <input type="text" name="name" value="{{user.name}}"/> </label></div>
+  <div><label> Password: <input type="text" name="password" value="{{user.password}}"/> </label></div>
+  {{#roles}}
+    <label>{{name}}</label>
+    <input type="checkbox" name="{{name}}">
+  {{/roles}}
+  <div><input type="submit" value="Log in"/></div>
+  <input type="hidden" name="_csrf" value="{{_csrf.token}}"/>
+</div>
+
+</body>
+</html>
