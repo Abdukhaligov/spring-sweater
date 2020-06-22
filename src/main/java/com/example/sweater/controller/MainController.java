@@ -24,7 +24,7 @@ public class MainController {
     }
 
     @GetMapping("/main")
-    public String main(@RequestParam(required = false) String filter, Map<String, Object> model) {
+    public String main(@RequestParam(required = false, defaultValue = "") String filter, Map<String, Object> model) {
         Iterable<Message> messages;
 
         if (filter != null && !filter.isEmpty()) {
