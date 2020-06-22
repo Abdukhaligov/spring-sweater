@@ -1,4 +1,5 @@
 package com.example.sweater.config;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -53,9 +54,9 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
         auth.jdbcAuthentication()
                 .dataSource(dataSource)
                 .passwordEncoder(NoOpPasswordEncoder.getInstance())
-                .usersByUsernameQuery("select username, password, active from users where username=?")
+                .usersByUsernameQuery("select name, password, active from users where name=?")
                 .authoritiesByUsernameQuery(
-                        "select u.username, ur.roles from users u inner join user_role ur on u.id = ur.user_id where u.username=?");
+                        "select u.name, ur.roles from users u inner join user_role ur on u.id = ur.user_id where u.name=?");
 //        super.configure(auth);
     }
 }
